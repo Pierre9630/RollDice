@@ -5,7 +5,8 @@ let new_game = document.querySelector('#newgame');
 let body = document.querySelector("body");
 let currentP1 = document.querySelector(".currentP1");
 let currentP2 = document.querySelector(".currentP2");
-
+let totalP1 = document.querySelector(".scoreP1");
+let totalP2 = document.querySelector(".scoreP2");
 
 let newgame = false;
 let state = false;
@@ -51,15 +52,22 @@ function Game(){
     }
     
     function Hold(){
+        /*if(total_score_p1 < 100 || total_score_p2 < 100){
+
+        }*/
         if(actual_player === 1){
             //console.log("p1");
             total_score_p1 += round_score;
             round_score = 0;
+            currentP1.textContent = round_score+"";
+            totalP1.textContent = total_score_p1+"";
             console.log("deb " + total_score_p1 + "round " + round_score);
         }else{
             //console.log("p2");
             total_score_p2 += round_score;
             round_score = 0;
+            currentP2.textContent = round_score+"";
+            totalP2.textContent = total_score_p2+"";
         }
         if(state === false){
             state = true;
@@ -89,6 +97,11 @@ function Game(){
         //console.log(total_score_p1);
         //console.log(total_score_p2);
         console.log(total_score_p1 + " p2 " + total_score_p2);
+        if(actual_player === 1){
+            currentP1.textContent = round_score +"";
+        }else{
+            currentP2.textContent = round_score+"";
+        }
       });
     
     hold_game.addEventListener('click', (e) => {
