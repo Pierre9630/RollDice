@@ -3,6 +3,9 @@ let roll_dice = document.querySelector('#rolldice');
 let hold_game = document.querySelector('#holdgame');
 let new_game = document.querySelector('#newgame');
 let body = document.querySelector("body");
+let currentP1 = document.querySelector(".currentP1");
+let currentP2 = document.querySelector(".currentP2");
+
 
 let newgame = false;
 let state = false;
@@ -12,7 +15,9 @@ let round_score = 0;
 let actual_player = 1;
 document.body.onload = Oninit;
 //body.addEventListener("load", Oninit);
-do{
+
+function Game(){
+    
     function RollDice(){
         let nb_dices = document.getElementsByClassName("newdices").length;
         
@@ -41,6 +46,8 @@ do{
     function PlayAgain(){
         total_score_p1 = 0;
         total_score_p2 = 0;
+        round_score = 0;
+        actual_player = 1;
     }
     
     function Hold(){
@@ -90,11 +97,23 @@ do{
         console.log(round_score);
         console.log(total_score_p1 + " p2 " + total_score_p2);
       });
-}while(newgame === false);
+    
+    new_game.addEventListener('click', (e) => {
+        e.preventDefault();
+        Oninit();
+      });
+    
+}
+
 
 function Oninit(){
-    
+    total_score_p1 = 0;
+    total_score_p2 = 0;
+    //state = false;
+    round_score = 0;
+    actual_player = 1;
+    //newgame = false;
     let message = document.querySelector(".message");
-    message.textContent = "Player 1 Starts";
-
+    message.textContent = "Player 1 Starts";    
+    Game();
 }
