@@ -119,9 +119,8 @@ class Player1 extends Player{
             
                 if (rolldice === 1){          
                     
-                    
-                    RollDice.Hold();   
-                    
+                    this.roundScore = 0;   
+                    this.Hold();
         
                 }else{
                     round_score += rolldice;
@@ -154,8 +153,8 @@ class Player2 extends Player{
             
                 if (rolldice === 1){          
                     
-                    
-                    RollDice.Hold();   
+                    this.roundScore = 0;
+                    this.Hold();
                     
         
                 }else{
@@ -175,8 +174,8 @@ roll_dice.addEventListener('click', (e) => {
     
     P1 = new Player("P1");
     P2 = new Player("P2");
-
-    console.log(P1.RollTheDice()+"");
+    let test = P1.RollTheDice();
+    console.log(test) ;   
 
     //console.log(RollDice.StartTimer());
     //timerElement.textContent = RollDice.StartTimer();
