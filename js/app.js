@@ -1,13 +1,14 @@
-let roll_dice = document.querySelector('#rolldice');
-let hold_game = document.querySelector('#holdgame');
-let new_game = document.querySelector('#newgame');
-let body = document.querySelector("body");
-let currentP1 = document.querySelector(".currentP1");
-let currentP2 = document.querySelector(".currentP2");
-let totalP1 = document.querySelector(".scoreP1");
-let totalP2 = document.querySelector(".scoreP2");
-let message = document.querySelector(".message");
-let timerElement = document.querySelector("timer");
+const roll_dice = document.querySelector('#rolldice');
+const hold_game = document.querySelector('#holdgame');
+const new_game = document.querySelector('#newgame');
+const body = document.querySelector("body");
+const currentP1 = document.querySelector(".currentP1");
+const currentP2 = document.querySelector(".currentP2");
+const totalP1 = document.querySelector(".scoreP1");
+const totalP2 = document.querySelector(".scoreP2");
+const message = document.querySelector(".message");
+const timerElement = document.querySelector("timer");
+
 document.body.onload = Oninit;
 
 let RollDice;
@@ -72,8 +73,9 @@ class Game{
 }
 
 class Player{
-   totalScore = 0;
-   roundScore = 0;     
+   
+   round_score = 0;
+   total_score = 0;  
     constructor(name){
         this.name = name;
         /*this.totalScore = totalScore;
@@ -81,20 +83,20 @@ class Player{
     }
     GetRound(){
         
-        return this.roundScore;
+        return this.round_score;
     }
     SetRound(score){
-        this.roundScore = score;
+        this.round_score = score;
     }
     GetTotal(){
         
-        return this.totalScore;
+        return this.total_score;
     }
     SetTotal(totalScore){
-        this.totalScore = totalScore;
+        this.total_score = totalScore;
     }
     Hold(){
-        this.totalScore += this.roundScore;
+        this.total_score += this.round_score;
     }
     ShowName(){
 
@@ -102,31 +104,35 @@ class Player{
 }
 
 class Player1 extends Player{
+    rolldice = 0;
+    
     constructor(name){
-        super(name,0,0);
+        super(name);
     }
+    
     RollTheDice(){
         let nb_dices = document.getElementsByClassName("newdices").length;
-            
-        console.log("test");
+        let rolldice;
+        //console.log("test");
             
             for (let nb = 0; nb < nb_dices; nb++){
             
-            let rolldice = Math.floor(Math.random()*6) +1;
+                rolldice = Math.floor(Math.random()*6) +1;
+                
+                const elements = document.querySelector("img#des" + nb).setAttribute("src", "./images/dice" + rolldice + ".png");
+                
+                
+                    if (rolldice === 1){          
+                        
+                        this.round_score = 1;   
+                        this.total_score = 0;
             
-            const elements = document.querySelector("img#des" + nb).setAttribute("src", "./images/dice" + rolldice + ".png");
-            
-            
-                if (rolldice === 1){          
-                    
-                    this.roundScore = 0;   
-                    this.Hold();
-        
-                }else{
-                    round_score += rolldice;
-                }
+                    }else{
+                        this.round_score += rolldice;
+                    }
             }
-        return round_score;
+        
+        return this.round_score;
     }
     /*destructor {
         // This function is called when the object is destroyed
@@ -136,32 +142,35 @@ class Player1 extends Player{
 }
 
 class Player2 extends Player{
+    rolldice = 0;
+    
     constructor(name){
-        super(name,0,0);
+        super(name);
     }
     RollTheDice(){
         let nb_dices = document.getElementsByClassName("newdices").length;
-            
-        console.log("test");
+        let rolldice;
+        //console.log("test");
             
             for (let nb = 0; nb < nb_dices; nb++){
             
-            let rolldice = Math.floor(Math.random()*6) +1;
+                rolldice = Math.floor(Math.random()*6) +1;
+                
+                const elements = document.querySelector("img#des" + nb).setAttribute("src", "./images/dice" + rolldice + ".png");
+                
+                
+                    if (rolldice === 1){          
+                        
+                        this.roundScore = 0;
+                        this.Hold();
+                        
             
-            const elements = document.querySelector("img#des" + nb).setAttribute("src", "./images/dice" + rolldice + ".png");
-            
-            
-                if (rolldice === 1){          
-                    
-                    this.roundScore = 0;
-                    this.Hold();
-                    
-        
-                }else{
-                    round_score += rolldice;
-                }
+                    }else{
+                        this.round_score += this.rolldice;
+                    }
             }
-        return round_score;
+        
+        return this.round_score;
     }
 }
 new_game.addEventListener('click', (e) => {
@@ -172,23 +181,28 @@ new_game.addEventListener('click', (e) => {
 roll_dice.addEventListener('click', (e) => {
     e.preventDefault();
     
-    P1 = new Player("P1");
-    P2 = new Player("P2");
-    let test = P1.RollTheDice();
-    console.log(test) ;   
-
+    
+    //ptest = new Player("test");
+    //let test = P1.RollTheDice();
+    //console.log(P1.RollTheDice());
+    //console.log(P1.Hold(P1.RollTheDice()));
+    P1.Hold(1);
+    P1.Hold(5);
+    console.log(P1);
+    //console.log(ptest); 
+    //P1.RollTheDice();
     //console.log(RollDice.StartTimer());
     //timerElement.textContent = RollDice.StartTimer();
     //RollDice.StartTimer(); 
-    P1.SetRound(2);
-    console.log(P1.GetRound() + " " + P1.GetTotal());
+    /*P1.SetRound(2);
+    console.log(P1.GetRound() + " Total " + P1.GetTotal());
     P1.Hold();
     P1.SetRound(5);
-    console.log(P1.GetRound() + " " + P1.GetTotal());
+    console.log(P1.GetRound() + " Total " + P1.GetTotal());*/
   });
 hold_game.addEventListener('click', (e) => {
     e.preventDefault();
-    RollDice.Hold();
+    P1.Hold();
   });
 
 function Oninit(){      
@@ -198,6 +212,9 @@ function Oninit(){
     RollDice.Reset();   
     
 }
+
+P1 = new Player1("P1");
+P2 = new Player2("P2");
 RollDice = new Game();
 
 //RollDice.Start(P1,P2);
