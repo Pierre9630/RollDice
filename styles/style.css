@@ -1,0 +1,69 @@
+body{
+    background-color: aliceblue;
+    color:black;
+}
+button{
+    color:brown;
+}
+.show-dices{
+    position: fixed;
+    top: 38%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -90%);
+}
+
+.players{
+    display: flex;
+}
+.column{
+    flex: 50%;
+    width: 100%;
+}
+.player-name, .score{
+    /*border: 1px solid lightcoral;
+    border-radius: 2%;
+    background-color: lightcoral;*/
+    width : 30%;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    /*box-sizing: border-box;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;*/
+}
+.current{
+    border: 1px solid lightcoral;
+    border-radius: 2%;
+    background-color: lightcoral;
+    width : 30%;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.active-player .player-name::after {
+    content: "\2022";
+    font-size: 47px;
+    position: absolute;
+    color: #eb4d4d;
+    top: -7px;
+    right: 10px;
+  }
+.players > #player1{
+    
+}
+.players > #player2{
+
+}
+.player-active{
+
+}
+
+.unstyled-button {
+    border: none;
+    padding: 0;
+    background: none;
+}

@@ -23,7 +23,7 @@ class Game{
        this.newgame = false;
         //this.limitPlayers = limitPlayers;
     }
-    /*StartTimer(){
+    StartTimer(){
         // program to create a countdown timer
 
         // time to countdown from (in milliseconds)
@@ -55,7 +55,7 @@ class Game{
             }
             }, 1000);
         
-    }*/
+    }
     win(){
 
     }

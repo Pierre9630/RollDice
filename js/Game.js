@@ -32,7 +32,8 @@ class Game {
     }
     // si le dé tombe sur 6 alors on double la mise (bonus!)
     if (this.dice === 6){
-
+        player.scoreRound += this.dice * 2;
+        return;
     } 
     // affection du score
     player.scoreRound += this.dice;

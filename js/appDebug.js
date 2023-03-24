@@ -2,7 +2,7 @@
 const eltBtnRollDice = document.getElementById("rolldice"); 
 const eltBtnHold = document.getElementById("holdgame");
 const eltNewGame = document.getElementById('newgame'); 
-const eltImageDice = document.getElementById("des0"); 
+const eltImageDice = document.getElementById("dice"); 
 
 const game = new Game(); 
 

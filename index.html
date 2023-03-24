@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!--<link
+      href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />-->
     <link href="styles/style.css" rel="stylesheet">
 </head>
 <body>
@@ -18,19 +23,21 @@
     <main>
         <h2 class="message"></h2>
         <div class="dices">
-            <img class="newdices" id="des0" src="./images/dice1.png" alt="dice" data-random="">
+            <img class="show-dices" id="dice" src="./images/dice1.png" alt="dice" data-random="">
         </div>
         <div class="players">
-            <div id="player1" class="player-active">
-                <h2>Player 1</h2>
+            <div id="player1" class="active-player column">
+                <div class="led isactive"></div>
+                <div class="player-name">Player 1</div>
                 <h1 class="score">0</h1>
                 <div class="current">
                     <h4>CURRENT</h4>
                     <h4 class="currentScore">0</h4>
                 </div>
             </div>
-            <div id="player2">
-                <h2>Player 2</h2>
+            <div id="player2" class="column">
+                <div class="led"></div>
+                <div class="player-name">Player 2</div>
                 <h1 class="score">0</h1>
                 <div class="current">
                     <h4>CURRENT</h4>
