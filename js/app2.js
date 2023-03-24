@@ -15,13 +15,13 @@ let total_score_p1;
 let total_score_p2;
 let round_score = 0;
 let actual_player = 1;
-document.body.onload = Oninit;
+document.body.onload = oninit;
 var delay = 10000;
 //body.addEventListener("load", Oninit);
 
-function Game(){
+function game(){
     
-    function RollDice(){
+    function rollDice(){
         //if(!newgame){}
         let nb_dices = document.getElementsByClassName("newdices").length;
         
@@ -37,7 +37,7 @@ function Game(){
             if (rolldice === 1){          
                 
                 round_score = 0;
-                Hold();   
+                hold();   
                 
     
             }else{
@@ -47,14 +47,14 @@ function Game(){
         return round_score;
     }
     
-    function PlayAgain(){
+    function playAgain(){
         total_score_p1 = 0;
         total_score_p2 = 0;
         round_score = 0;
         actual_player = 1;
     }
     
-    function Hold(){
+    function hold(){
         //console.log(" total score p1 " + total_score_p1 + " total score p2 " + total_score_p2);
         //console.log(total_score_p1 < 100);
         
@@ -73,9 +73,9 @@ function Game(){
                 totalP2.textContent = total_score_p2+"";
             }
             if (actual_player === 1 && total_score_p1 > 99){
-                Winner(actual_player);
+                winner(actual_player);
             }else if(actual_player === 2 && total_score_p2 >99){
-                Winner(actual_player);
+                winner(actual_player);
             }
             if(state === false){
                 state = true;
@@ -101,11 +101,11 @@ function Game(){
 
     function Winner(player){
         console.log("Winner");
-        debugger;
+        //debugger;
         message.innerHTML = "<h2>Player :"+ player + " has Won</h2>";
         setTimeout(function() {
             //your code to be executed after 1 second
-            //Oninit();
+            oninit();
           }, delay);
         
         /*if(total_score_p1 >= 100){
@@ -115,12 +115,12 @@ function Game(){
         }else{
             message.textContent = "Equality"
         }*/
-    Oninit();
+    oninit();
     }
     roll_dice.addEventListener('click', (e) => {
         e.preventDefault();
         //console.log("test button");
-        round_score = RollDice();
+        round_score = rollDice();
         //console.log(round_score);
         //console.log(total_score_p1);
         //console.log(total_score_p2);
@@ -134,27 +134,32 @@ function Game(){
     
     hold_game.addEventListener('click', (e) => {
         e.preventDefault();
-        Hold();
+        hold();
         //console.log(round_score);
         //console.log(total_score_p1 + " p2 " + total_score_p2);
       });
     
     new_game.addEventListener('click', (e) => {
         e.preventDefault();
-        Oninit();
+        oninit();
       });
     
 }
 
 
-function Oninit(){
+function oninit(){
     total_score_p1 = 0;
     total_score_p2 = 0;
+    currentP1.textContent = 0;
+    currentP2.textContent = 0;
+
+    totalP1.textContent = 0;
+    totalP2.textContent = 0;
     //state = false;
     round_score = 0;
     actual_player = 1;
     //newgame = false;
     
     message.textContent = "Player 1 Starts";    
-    Game();
+    game();
 }
