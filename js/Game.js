@@ -1,6 +1,6 @@
 class Game {
   constructor() {
-    this.player1 = { scoreRound: 0, scoreTotal: 0, number: 1 };
+    this.player1 = { scoreRound: 0, scoreTotal: 0, number: 1};
     this.player2 = { scoreRound: 0, scoreTotal: 0, number: 2};
     this.dice = 1;
     //this.timelimit = 10000;
@@ -57,8 +57,8 @@ class Game {
   }
 
   reset() {
-    this.player1 = {scoreRound: 0, scoreTotal: 0 };
-    this.player2 = {scoreRound: 0, scoreTotal: 0 };
+    this.player1 = {scoreRound: 0, scoreTotal: 0, number : 1 };
+    this.player2 = {scoreRound: 0, scoreTotal: 0, number: 2};
     this.currentPlayer = this.player1; 
   }
 

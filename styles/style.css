@@ -62,8 +62,8 @@ button{
 .players > #player2{
 
 }
-.player-active{
-
+.active-player{
+    background-color: red;
 }
 
 .unstyled-button {
