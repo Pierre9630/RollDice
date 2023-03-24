@@ -11,16 +11,16 @@ const timerElement = document.querySelector("timer");
 
 document.body.onload = Oninit;
 
-let RollDice;
-let P1;
-let P2;
+let rolldice;
+let p1;
+let p2;
 
 class Game{
-    activePlayer = 1;
-    newgame = false;
+    
     //limitPlayers = 2;
     constructor(){
-       
+       this.activePlayer = 1;
+       this.newgame = false;
         //this.limitPlayers = limitPlayers;
     }
     /*StartTimer(){
@@ -56,14 +56,14 @@ class Game{
             }, 1000);
         
     }*/
-    Win(){
+    win(){
 
     }
-    Reset(){
+    reset(){
         this.activePlayer = 1;
         this.newgame = true;
     }
-    ChangePlayer(){
+    changePlayer(){
         if(this.activePlayer === 1){
             this.activePlayer = 2
         }else{
@@ -73,44 +73,16 @@ class Game{
 }
 
 class Player{
-   
-   round_score = 0;
-   total_score = 0;  
+    
+     
     constructor(name){
         this.name = name;
+        this.round_score = 0;
+        this.total_score = 0;
         /*this.totalScore = totalScore;
         this.roundScore = roundScore;*/
     }
-    GetRound(){
-        
-        return this.round_score;
-    }
-    SetRound(score){
-        this.round_score = score;
-    }
-    GetTotal(){
-        
-        return this.total_score;
-    }
-    SetTotal(totalScore){
-        this.total_score = totalScore;
-    }
-    Hold(){
-        this.total_score += this.round_score;
-    }
-    ShowName(){
-
-    }
-}
-
-class Player1 extends Player{
-    rolldice = 0;
-    
-    constructor(name){
-        super(name);
-    }
-    
-    RollTheDice(){
+    rollTheDice(){
         let nb_dices = document.getElementsByClassName("newdices").length;
         let rolldice;
         //console.log("test");
@@ -134,49 +106,36 @@ class Player1 extends Player{
         
         return this.round_score;
     }
-    /*destructor {
-        // This function is called when the object is destroyed
-       console.log(`${this.name} is destroyed`);
-     }*/
-
-}
-
-class Player2 extends Player{
-    rolldice = 0;
-    
-    constructor(name){
-        super(name);
-    }
-    RollTheDice(){
-        let nb_dices = document.getElementsByClassName("newdices").length;
-        let rolldice;
-        //console.log("test");
-            
-            for (let nb = 0; nb < nb_dices; nb++){
-            
-                rolldice = Math.floor(Math.random()*6) +1;
-                
-                const elements = document.querySelector("img#des" + nb).setAttribute("src", "./images/dice" + rolldice + ".png");
-                
-                
-                    if (rolldice === 1){          
-                        
-                        this.roundScore = 0;
-                        this.Hold();
-                        
-            
-                    }else{
-                        this.round_score += this.rolldice;
-                    }
-            }
+    getRound(){
         
         return this.round_score;
     }
+    setRound(score){
+        this.round_score = score;
+    }
+    getTotal(){
+        
+        return this.total_score;
+    }
+    setTotal(totalScore){
+        this.total_score = totalScore;
+    }
+    hold(){
+        this.total_score += this.round_score;
+    }
+    showName(){
+
+    }
 }
+
 new_game.addEventListener('click', (e) => {
     e.preventDefault();
     Oninit();
   });
+  p1 = new Player1("P1");
+  p2 = new Player2("P2");
+  rolldice = new Game();
+  
 
 roll_dice.addEventListener('click', (e) => {
     e.preventDefault();
@@ -186,8 +145,9 @@ roll_dice.addEventListener('click', (e) => {
     //let test = P1.RollTheDice();
     //console.log(P1.RollTheDice());
     //console.log(P1.Hold(P1.RollTheDice()));
-    P1.Hold(1);
-    P1.Hold(5);
+    
+    p1.Hold(1);
+    p2.Hold(5);
     console.log(P1);
     //console.log(ptest); 
     //P1.RollTheDice();
@@ -202,20 +162,17 @@ roll_dice.addEventListener('click', (e) => {
   });
 hold_game.addEventListener('click', (e) => {
     e.preventDefault();
-    P1.Hold();
+    p1.Hold();
   });
 
 function Oninit(){      
     message.textContent = "Player 1 Starts";
-    P1 = null;
-    P2 = null;    
-    RollDice.Reset();   
+    p1 = null;
+    p2 = null;    
+    rolldice.Reset();   
     
 }
 
-P1 = new Player1("P1");
-P2 = new Player2("P2");
-RollDice = new Game();
 
 //RollDice.Start(P1,P2);
 //RollDice = new Game();
