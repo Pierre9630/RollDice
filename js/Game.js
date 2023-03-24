@@ -1,7 +1,7 @@
 class Game {
   constructor() {
-    this.player1 = { scoreRound: 0, scoreTotal: 0 };
-    this.player2 = { scoreRound: 0, scoreTotal: 0 };
+    this.player1 = { scoreRound: 0, scoreTotal: 0, number: 1 };
+    this.player2 = { scoreRound: 0, scoreTotal: 0, number: 2};
     this.dice = 1;
     //this.timelimit = 10000;
     /*this.timeLeft = 10000;
@@ -47,8 +47,13 @@ class Game {
   }
 
   switchPlayer() {
+    console.log(`player${this.currentPlayer.number}`);
+    document.getElementById(`player${this.currentPlayer.number}`).classList.remove("active-player");
+    
     this.currentPlayer =
       this.currentPlayer === this.player1 ? this.player2 : this.player1;
+    
+    document.getElementById(`player${this.currentPlayer.number}`).classList.add("active-player");
   }
 
   reset() {

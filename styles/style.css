@@ -5,6 +5,7 @@ body{
 button{
     color:brown;
 }
+/* dices showing*/
 .show-dices{
     position: fixed;
     top: 38%;
@@ -43,6 +44,9 @@ button{
     padding: 10px;
     margin-left: auto;
     margin-right: auto;
+}
+.active-player{
+    font-weight: 300;
 }
 .active-player .player-name::after {
     content: "\2022";
