@@ -2,10 +2,11 @@
 const eltBtnRollDice = document.getElementById("rolldice"); 
 const eltBtnHold = document.getElementById("holdgame");
 const eltNewGame = document.getElementById('newgame'); 
-const eltImageDice = document.getElementById("dice"); 
+const eltImageDice = document.getElementById("dice");
+const eltMessage = document.getElementById("message");
 
 const game = new Game(); 
-
+const winscore = 100; //best score (in this case 100 wins) it need to soustract 1
 
 // écouteur evennement 
 eltBtnRollDice.addEventListener("click", () => {
@@ -33,7 +34,15 @@ function updateAffichage() {
   document.querySelector("#player1 .score").innerHTML = game.player1.scoreTotal;
   document.querySelector("#player2 .score").innerHTML = game.player2.scoreTotal; 
   
-
+  if(game.player1.scoreTotal >= winscore){
+    eltMessage.innerHTML = "Player 1 Wins";
+    eltMessage.classList.add('Wins');
+    game.reset();
+  }else if (game.player2.scoreTotal >= winscore){
+    eltMessage.innerHTML = "Player 2 Wins";
+    eltMessage.classList.add('Wins');
+    game.reset();
+  }
 
 
 }

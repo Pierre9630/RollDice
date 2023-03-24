@@ -67,7 +67,7 @@ class Game {
     player.scoreRound = 0;
     this.switchPlayer();
   }
-  bonusScore(){
+  winner(){
 
   }
 }
