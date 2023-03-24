@@ -68,6 +68,6 @@ class Game {
     this.switchPlayer();
   }
   winner(){
-
+    
   }
 }
