@@ -22,7 +22,7 @@ var delay = 10000;
 function Game(){
     
     function RollDice(){
-        if(!newgame){}
+        //if(!newgame){}
         let nb_dices = document.getElementsByClassName("newdices").length;
         
         //console.log("test");
@@ -102,7 +102,7 @@ function Game(){
     function Winner(player){
         console.log("Winner");
         debugger;
-        message.innerHTML = "<h2>Player :"+ player.value + " has Won</h2>";
+        message.innerHTML = "<h2>Player :"+ player + " has Won</h2>";
         setTimeout(function() {
             //your code to be executed after 1 second
             //Oninit();
