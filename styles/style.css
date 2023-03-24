@@ -71,3 +71,8 @@ button{
     padding: 0;
     background: none;
 }
+.Wins{
+    font-size: large;
+    color:gold;
+    font-weight: bold;
+}
