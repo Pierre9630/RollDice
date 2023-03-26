@@ -46,15 +46,17 @@ button{
     margin-right: auto;
 }
 .active-player{
-    font-weight: 300;
+    /*font-weight: 200;*/
+    background-color: red;
 }
 .active-player .player-name::after {
     content: "\2022";
     font-size: 47px;
-    position: absolute;
-    color: #eb4d4d;
-    top: -7px;
-    right: 10px;
+    position: relative;
+    color: #15f062;
+    top: 10px;
+    right: -2px;
+    
   }
 .players > #player1{
     
@@ -62,10 +64,6 @@ button{
 .players > #player2{
 
 }
-.active-player{
-    background-color: red;
-}
-
 .unstyled-button {
     border: none;
     padding: 0;
