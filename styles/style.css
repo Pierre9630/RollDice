@@ -48,6 +48,7 @@ button{
 .active-player{
     /*font-weight: 200;*/
     background-color: red;
+    width : 30%;
 }
 .active-player .player-name::after {
     content: "\2022";
@@ -62,6 +63,18 @@ button{
     
 }
 .players > #player2{
+
+}
+#game-buttons{
+    position: fixed;
+    top: 58%;
+    left: 52%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -90%);
+    font-size: larger;
+    width: 15rem;
+    height: 2rem;
+    font-weight: bold;
 
 }
 .unstyled-button {
