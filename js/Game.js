@@ -45,7 +45,7 @@ class Game {
     player.scoreRound = 0;
     this.switchPlayer();
   }
-
+  //changer de joueur
   switchPlayer() {
     console.log(`player${this.currentPlayer.number}`);
     document.getElementById(`player${this.currentPlayer.number}`).classList.remove("active-player");
@@ -55,19 +55,17 @@ class Game {
     
     document.getElementById(`player${this.currentPlayer.number}`).classList.add("active-player");
   }
-
+  //reinitialiser la partie
   reset() {
     this.player1 = {scoreRound: 0, scoreTotal: 0, number : 1 };
     this.player2 = {scoreRound: 0, scoreTotal: 0, number: 2};
     this.currentPlayer = this.player1; 
   }
-
+  //si on tombe sur 1 alors on reinitalise le score
   bankOut(player) {
     console.log("perdu");
     player.scoreRound = 0;
     this.switchPlayer();
   }
-  winner(){
-    
-  }
+  
 }

@@ -1,4 +1,10 @@
+@font-face {
+    font-family: "Lato-Regular";
+    src: local("fonts/Lato-Regular.ttf");
+    
+    }
 body{
+    font-family: "Lato-Regular";
     background-color: aliceblue;
     color:black;
 }
