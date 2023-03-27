@@ -11,7 +11,8 @@ const winscore = 100; //best score (in this case 100 wins) it need to soustract 
 // écouteur des évenments bouton
 eltBtnRollDice.addEventListener("click", () => {
   game.rollDice(game.currentPlayer); 
-  updateAffichage(); 
+  updateAffichage();
+  checkScore(); 
 }); 
 
 eltBtnHold.addEventListener("click", () => {
@@ -34,6 +35,10 @@ function updateAffichage() {
   document.querySelector("#player1 .score").innerHTML = game.player1.scoreTotal;
   document.querySelector("#player2 .score").innerHTML = game.player2.scoreTotal; 
   
+  
+  }
+  //si il y a un gagnant alors le préciser et relancer la partie
+function checkScore(){
   if(game.player1.scoreTotal >= winscore){
     eltMessage.innerHTML = "Player 1 Wins";
     eltMessage.classList.add('Wins');
@@ -43,7 +48,6 @@ function updateAffichage() {
     eltMessage.classList.add('Wins');
     game.reset();
   }
-
 
 }
 

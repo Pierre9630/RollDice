@@ -59,7 +59,9 @@ class Game {
   reset() {
     this.player1 = {scoreRound: 0, scoreTotal: 0, number : 1 };
     this.player2 = {scoreRound: 0, scoreTotal: 0, number: 2};
-    this.currentPlayer = this.player1; 
+    this.currentPlayer = this.player1;
+    document.getElementById(`player2`).classList.remove("active-player");
+    document.getElementById(`player1`).classList.add("active-player");
   }
   //si on tombe sur 1 alors on reinitalise le score
   bankOut(player) {

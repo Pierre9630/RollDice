@@ -1,7 +1,7 @@
 @font-face {
     font-family: "Lato-Regular";
-    src: local("fonts/Lato-Regular.ttf");
-    
+    src: local("Lato-Regular");
+    src:("fonts/Lato-Regular.ttf");
     }
 body{
     font-family: "Lato-Regular";
