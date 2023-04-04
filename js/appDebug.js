@@ -40,12 +40,18 @@ function updateAffichage() {
   //si il y a un gagnant alors le préciser et relancer la partie
 function checkScore(){
   if(game.player1.scoreTotal >= winscore){
-    eltMessage.innerHTML = "Player 1 Wins";
+    eltMessage.innerHTML = "Player 1 Wins";    
     eltMessage.classList.add('Wins');
+    setTimeout(()=>{
+      eltMessage.innerHTML = "";
+    },3000);
     game.reset();
   }else if (game.player2.scoreTotal >= winscore){
     eltMessage.innerHTML = "Player 2 Wins";
     eltMessage.classList.add('Wins');
+    setTimeout(()=>{
+      eltMessage.innerHTML = "";
+    },3000);
     game.reset();
   }
 

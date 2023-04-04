@@ -56,7 +56,7 @@ class Game {
     document.getElementById(`player${this.currentPlayer.number}`).classList.add("active-player");
   }
   //reinitialiser la partie
-  reset() {
+  reset() {    
     this.player1 = {scoreRound: 0, scoreTotal: 0, number : 1 };
     this.player2 = {scoreRound: 0, scoreTotal: 0, number: 2};
     this.currentPlayer = this.player1;
